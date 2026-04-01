@@ -1,0 +1,65 @@
+/* ══════════════════════════════════════
+   SEARCHHEADER — mobile-first
+══════════════════════════════════════ */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-text-light);
+    border-bottom: 1px solid rgba(139, 94, 60, 0.15);
+    box-shadow: var(--elevation-1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    flex-shrink: 0;
+
+    & img {
+        height: var(--text-xl);
+    }
+}
+
+/* Esconde o texto do logo em mobile para dar espaço à searchbar */
+.logoText {
+    display: none;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.searchWrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+.avatarSlot {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+    .navbar {
+        gap: var(--space-6);
+        padding: var(--space-2) var(--space-8);
+    }
+
+    .logoText {
+        display: block;
+    }
+
+    .searchWrapper {
+        max-width: 600px;
+    }
+}

@@ -1,0 +1,173 @@
+/* Variáveis de cor e fonte da seção */
+:root {
+  --green-primary: #4A7C59;
+  --green-dark: #2F5D3A;
+  --yellow-accent: #D4A437;
+  --earth-brown: #8B6B3E;
+  --text-secondary: #5A5A5A;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-accent: 'Poppins', sans-serif;
+}
+
+
+.heroContainer {
+  position: relative; /* Base para o fundo absoluto */
+  width: 100%;
+  min-height: 93dvh; /* Altura mínima para não sumir se estiver vazio */
+  flex: 1;            /* cresce para empurrar o Footer ao fundo */
+  display: flex;
+  flex-direction: column;
+}
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(243, 239, 230, 0.95) 0%, rgba(243, 239, 230, 0.5) 100%);
+}
+.backgroundWrapper {
+  position: absolute; /* O fundo sai do fluxo e não empurra ninguém */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+/* Esta div segura o Menu e a Busca */
+.contentWrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Menu em cima, Busca embaixo */
+  justify-content: space-between; /* Empurra o menu para o topo e a busca sobra no meio */
+  align-items: center;
+}
+.content {
+  position: relative; /* Garante que o conteúdo fique acima do vídeo */
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hero {
+  position: relative;
+  z-index: 3; /* Mantém o conteúdo acima do vídeo e do overlay */
+  min-height: 340px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 24px;
+  gap: 24px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(107,163,104,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroText {
+  position: relative;
+  z-index: 2;
+}
+
+.heroEyebrow {
+  font-family: var(--font-accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroEyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 4px;
+  background: var(--yellow-accent);
+  border-radius: 4px;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2cqw, 3.1cqw, 4.5cqw);
+  font-weight: 600;
+  line-height: 1.18;
+   
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.heroTitle .w1 { color: var(--green-dark); }
+.heroTitle .w2 { color: var(--yellow-accent); font-style: italic; }
+.heroTitle .w3 { color: var(--earth-brown); }
+.heroTitle .w4 { color: var(--green-primary); }
+
+.heroSubtitle {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-weight: 500;
+  max-width: 480px;
+  margin: 0;
+}
+
+.heroMascot {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  animation: floatMascot 5s ease-in-out infinite;
+}
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.mascotSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+    min-height: auto;
+  }
+  
+  .heroMascot {
+    display: none;
+  }
+  
+  .heroOverlay {
+    background: linear-gradient(to bottom, rgba(243, 239, 230, 0.95) 0%, rgba(243, 239, 230, 0.7) 100%);
+  }
+  
+  .heroTitle {
+    font-size: 36px;
+  }
+}

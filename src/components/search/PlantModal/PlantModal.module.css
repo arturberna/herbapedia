@@ -1,0 +1,315 @@
+/* ══════════════════════════════════════
+   PLANTMODAL — mobile-first
+══════════════════════════════════════ */
+
+/* ── Base (mobile): bottom sheet ── */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 9000;
+    display: flex;
+    align-items: flex-end;      /* cola na base em mobile */
+    justify-content: center;
+    padding: 0;
+    animation: fadeIn var(--motion-fast) var(--ease-out);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.panel {
+    position: relative;
+    background: #ffffff;
+    border-radius: var(--space-4) var(--space-4) 0 0;  /* topo arredondado, base reta */
+    width: 100%;
+    max-width: 100%;
+    max-height: 92dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--elevation-3);
+    animation: slideUp var(--motion-base) var(--ease-out);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(var(--space-8)); opacity: 0; }
+    to   { transform: translateY(0);              opacity: 1; }
+}
+
+/* Área interna rolável */
+.scrollArea {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.closeBtn {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: rgba(245, 245, 245, 0.92);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    transition: background var(--motion-fast) var(--ease-out),
+                transform var(--motion-fast) var(--ease-spring);
+    z-index: 10;
+}
+
+.closeBtn:hover  { background: #e0e0e0; color: var(--text-primary); transform: scale(1.08); }
+.closeBtn:active { transform: scale(0.93); }
+
+/* ── Header — coluna em mobile ── */
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4) var(--space-4);
+    border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--space-2);
+    flex-shrink: 0;
+    background-color: var(--color-surface);
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    flex: 1;
+}
+
+.commonName {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    padding-right: var(--space-8);
+}
+
+.scientificName {
+    font-style: italic;
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.description {
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: var(--space-2) 0 0;
+}
+
+/* ── Body ── */
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+/* ── Seções como quadros ── */
+.section {
+    padding: var(--space-4);
+    border-radius: var(--space-2);
+    border: 1px solid rgba(139, 94, 60, 0.12);
+    background: var(--color-text-light);
+    box-shadow: 0 1px 4px rgba(42, 58, 42, 0.05),
+                0 2px 8px rgba(42, 58, 42, 0.03);
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.iconGood { color: #2e7d32; }
+.iconWarn { color: #e65100; }
+.iconInfo { color: var(--color-accent-green); }
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.itemGood,
+.itemWarn {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--space-2);
+    line-height: 1.4;
+}
+
+.itemGood {
+    background: #f1f8f1;
+    color: #2e7d32;
+    border-left: 3px solid #a5d6a7;
+}
+
+.itemWarn {
+    background: #fff8f3;
+    color: #bf360c;
+    border-left: 3px solid #ffcc80;
+}
+
+.text {
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── Linha de ações ── */
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-2);
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+/* ── Link fonte científica ── */
+.sourceLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 1px;
+    transition: color var(--motion-fast) var(--ease-out);
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--color-argila-dark);
+        transition: width var(--motion-base) var(--ease-out);
+    }
+
+    &:hover {
+        color: var(--color-argila-dark);
+        &::after { width: 100%; }
+    }
+}
+
+.sourceLinkIcon { font-size: var(--text-xs); flex-shrink: 0; }
+
+.sourceLinkArrow {
+    font-size: var(--text-xs);
+    flex-shrink: 0;
+    transition: transform var(--motion-fast) var(--ease-spring);
+
+    .sourceLink:hover & { transform: translate(2px, -2px); }
+}
+
+/* ── Botão PDF ── */
+.pdfBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-argila-dark);
+    background: var(--color-argila-light);
+    border: 1px solid var(--color-argila-border);
+    border-radius: 20px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background var(--motion-fast) var(--ease-out),
+                color var(--motion-fast) var(--ease-out),
+                transform var(--motion-fast) var(--ease-spring),
+                box-shadow var(--motion-fast) var(--ease-out);
+}
+
+.pdfBtn:hover {
+    background: var(--color-argila-dark);
+    color: #fff;
+    border-color: var(--color-argila-dark);
+    transform: scale(1.03);
+    box-shadow: var(--elevation-1);
+}
+
+.pdfBtn:active { transform: scale(0.97); }
+
+/* ══════════════════════════════════════
+   Tablet+ (640px) — dialog centralizado
+══════════════════════════════════════ */
+@media (min-width: 640px) {
+    .backdrop {
+        align-items: center;
+        padding: var(--space-4);
+    }
+
+    .panel {
+        border-radius: var(--space-4);
+        max-width: var(--max-width-narrow);
+        max-height: 90vh;
+    }
+
+    .header {
+        flex-direction: row;
+        padding: var(--space-6) var(--space-6) var(--space-4);
+    }
+
+    .image {
+        width: 130px;
+        height: 160px;
+    }
+
+    .body {
+        padding: var(--space-4) var(--space-6) var(--space-6);
+    }
+
+    .commonName {
+        font-size: var(--text-xl);
+        padding-right: var(--space-12);
+    }
+
+    .scientificName { font-size: var(--text-sm); }
+    .description    { font-size: var(--text-sm); }
+    .text           { font-size: var(--text-sm); }
+
+    .itemGood,
+    .itemWarn       { font-size: var(--text-sm); }
+}

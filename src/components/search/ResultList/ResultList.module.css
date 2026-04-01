@@ -1,0 +1,133 @@
+.olCards {
+  /* Reset e Variáveis */
+  &, & *, & *::before, & *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  --olCards-color-bg: var(--color-bg);
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 45em;
+  padding: 2em;
+  gap: 2em;
+  counter-reset: olCards-counter;
+
+  /* Estilo base do Item (li) */
+  & li {
+    display: grid;
+    grid-template-areas:
+      "step title"
+      "step content";
+    padding: 1em 2em 1em 0;
+    row-gap: 0.5em;
+    column-gap: 2em;
+    box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
+                inset 0.05em 0.05em rgba(255, 255, 255, 1);
+    counter-increment: olCards-counter;
+    text-align: left;
+    background-color: var(--olCards-color-bg);
+
+    /* Elementos Internos */
+    & .step {
+      grid-area: step;
+      display: flex;
+      align-self: flex-start;
+      background-color: var(--olCards-color-accent);
+      border-radius: 0 50em 50em 0;
+      padding: 1em;
+      justify-content: flex-end;
+      box-shadow: inset 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.4),
+                  0em 0.05em rgba(255, 255, 255, 1);
+      flex: 1;
+      gap: 1em;
+
+      &::before {
+        content: "0" counter(olCards-counter);
+        flex: 1;
+        align-self: center;
+        color: var(--olCards-color-bg);
+        font-weight: bold;
+        font-size: 2em;
+        text-shadow: 0.025em 0.025em 0.125em rgba(0, 0, 0, 0.4);
+      }
+
+      & i {
+        color: var(--olCards-color-accent);
+        width: 2em;
+        height: 2em;
+        font-size: 1.8em;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background-color: var(--olCards-color-bg);
+        box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.4),
+                    inset 0.05em 0.05em rgba(255, 255, 255, 1);
+      }
+    }
+
+    & .title {
+      grid-area: title;
+      color: var(--olCards-color-accent);
+      font-weight: bold;
+    }
+
+    & .content {
+      grid-area: content;
+      font-size: 0.9em;
+    }
+  }
+
+  /* Lógica de Alternância (Lado Direito/Esquerdo) */
+  &.alternate li:nth-child(even) {
+    grid-template-areas:
+      "title step"
+      "content step";
+    padding: 1em 0 1em 2em;
+
+    & .step {
+      border-radius: 50em 0 0 50em;
+      flex-direction: row-reverse;
+      /* O justify-content muda para o conteúdo colar no lado oposto */
+      justify-content: flex-end; 
+    }
+  }
+
+  /* Responsividade */
+  @media only screen and (max-width: 500px) {
+    padding: 1em;
+
+    & li {
+      column-gap: 0em;
+      grid-template-areas:
+        'step title'
+        'content content';
+      grid-template-columns: min-content auto;
+      padding: 1em 0em;
+
+      & .title, & .content {
+        padding: 0 1em;
+      }
+
+      & .title {
+        align-self: center;
+        width: auto;
+      }
+
+      & .step {
+        font-size: .5em;
+      }
+    }
+
+    &.alternate li:nth-child(even) {
+      grid-template-areas:
+        'title step'
+        'content content';
+      grid-template-columns: auto min-content;
+      padding: 1em 0em;
+    }
+  }
+}

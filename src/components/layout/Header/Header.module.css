@@ -1,0 +1,67 @@
+/* ══════════════════════════════════════
+   HEADER — mobile-first
+══════════════════════════════════════ */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-4);
+    z-index: 10;
+    background: rgba(242, 238, 227, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139, 94, 60, 0.15);
+
+    & nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    & nav a {
+        font-family: var(--font-heading);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        color: var(--text-primary);
+        opacity: 0.75;
+        transition: opacity var(--motion-fast) var(--ease-out),
+                    color var(--motion-fast) var(--ease-out);
+
+        &:hover {
+            opacity: 1;
+            color: var(--color-argila-queimada);
+        }
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    & img {
+        height: var(--text-xl);
+    }
+}
+
+.logoText {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--text-primary);
+}
+
+/* Tablet+ */
+@media (min-width: 768px) {
+    .navbar {
+        padding: var(--space-4) var(--space-12);
+
+        & nav { gap: var(--space-6); }
+    }
+
+    .logoText { font-size: var(--text-lg); }
+}

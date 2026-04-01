@@ -1,0 +1,64 @@
+.wrapper {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--text-xl), 3.5vw, var(--text-3xl)); /* 24px → 40px */
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    margin: 0; /* reset browser heading margin */
+}
+
+.prefix {
+    display: inline;
+    white-space: nowrap;
+}
+
+.animated {
+    display: inline-block;
+    height: 1.25em;
+    overflow: hidden;
+    vertical-align: bottom;
+    position: relative;
+    padding: 0 var(--space-2); /* 8px */
+}
+
+.animated::before,
+.animated::after {
+    position: absolute;
+    top: 0;
+    line-height: 1.25em;
+    color: var(--color-argila-mid);
+    font-weight: 400;
+    animation: bracketOpacity 2s var(--ease-in-out) infinite;
+}
+.animated::before { content: '['; left: 0; }
+.animated::after  { content: ']'; right: 0; }
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    animation: scroll 10s var(--ease-in-out) infinite;
+}
+
+.listItem {
+    display: block;
+    height: 1.25em;
+    line-height: 1.25em;
+    white-space: nowrap;
+    color: var(--color-argila-mid);
+}
+
+@keyframes scroll {
+    0%,    12.66%, 100% { transform: translateY(   0); }
+    16.66%, 29.32%      { transform: translateY(-25%); }
+    33.32%, 45.98%      { transform: translateY(-50%); }
+    49.98%, 62.64%      { transform: translateY(-75%); }
+    66.64%, 79.30%      { transform: translateY(-50%); }
+    83.30%, 95.96%      { transform: translateY(-25%); }
+}
+
+@keyframes bracketOpacity {
+    0%, 100% { opacity: 0; }
+    50%      { opacity: 1; }
+}

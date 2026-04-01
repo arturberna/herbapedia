@@ -1,0 +1,231 @@
+
+
+/* --- Seção do Cabeçalho (Hero) --- */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+.hero-section {
+    /* background-image: url('../assets/video/vento_plantas.mp4'); */
+    /* Substitua pelo caminho da sua imagem da estufa */
+    background-size: cover;
+    background-position: center;
+    padding: 20px 5%;
+    height: 70vh; /* Ajuste conforme necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: inset 0 -30px 40px rgba(0, 0, 0, 0.5); /* Sombra na parte inferior da imagem */
+}
+
+/* Efeito de sobreposição escura para a imagem */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Escurece a imagem de fundo */
+    z-index: 1;
+}
+
+
+
+.hero-content {
+    padding-bottom: 50px;
+    max-width: 70vw;
+    min-width: 50vw;
+    /* Alinhamento ao centro da tela */
+    margin: 0 auto; 
+    margin-bottom: 15%;
+    text-align: center;
+}
+
+.subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    color: var(--color-accent-green);
+    opacity: 0.9;
+}
+
+.search-description {
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.search-box {
+    display: flex;
+    background-color: rgba(193, 228, 205, 0.249);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 50px;
+
+    
+}
+.search-box .bi-search {
+    position: absolute;
+    left: 10px; /* Distância da borda esquerda */
+    top: 50%; /* Alinha o topo em 50% do container */
+    transform: translateY(-50%); /* Move o ícone 50% de sua própria altura para cima */
+    color: #888;
+    font-size: 18px;
+    pointer-events: none; /* Permite que o clique "passe" pelo ícone até o input */
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 15px;
+    font-size: 1em;
+    color: #333;
+    
+    /* efeito vidro */
+    outline: none; /* Remove a borda padrão de foco */
+    /* 1. Transparência do Fundo: Torna o input "semitransparente" */
+    background: rgba(255, 255, 255, 0.4); /* Cor branca com 10% de opacidade */
+    
+    /* 2. Desfoque de Fundo: O coração do efeito de vidro */
+    backdrop-filter: blur(3px);
+    
+    /* 3. Borda Sutil (similar ao reflexo do vidro) */
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    
+    /* 4. Sombra Leve (opcional, mas adiciona profundidade) */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+
+    /* 5. Estilização do Texto (para contraste) */
+    color: #eaeaea; /* Cor escura para o texto */
+}
+.search-box input:focus {
+     /* Aumenta a opacidade da borda ao focar para destacar */
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+.search-box input::placeholder {
+    color: var(--color-secondary-dark);
+}
+/* Passo 2: Estilização do Input com Efeito de Vidro */
+.glass-input {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    outline: none; /* Remove a borda padrão de foco */
+    
+    /* --- EFEITO GLASSMORPHISM --- */
+    
+    /* 1. Transparência do Fundo: Torna o input "semitransparente" */
+    background: rgba(255, 255, 255, 0.1); /* Cor branca com 10% de opacidade */
+    
+    /* 2. Desfoque de Fundo: O coração do efeito de vidro */
+    backdrop-filter: blur(10px);
+    
+    /* 3. Borda Sutil (similar ao reflexo do vidro) */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* 4. Sombra Leve (opcional, mas adiciona profundidade) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* 5. Estilização do Texto (para contraste) */
+    color: #333; /* Cor escura para o texto */
+}
+
+/* Efeito ao Focar (Melhora a usabilidade) */
+.glass-input:focus {
+    /* Aumenta a opacidade da borda ao focar para destacar */
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+.search-box button {
+    border: none;
+    background-color: var(--color-secondary-dark);
+    color: white;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.browse-btn {
+    background-color: var(--color-secondary-dark); 
+    width: 150px;
+    font-weight: 600;
+}
+
+.search-btn {
+    background-color: var(--color-accent-green);
+    width: 60px;
+}
+
+.browse-btn:hover, .search-btn:hover {
+    filter: brightness(1.2);
+}
+
+/* --- Conteúdo Principal --- */
+
+.main-content {
+    padding: 40px 5%;
+    background-color: var(--color-secondary-dark); /* Fundo da seção de destaque */
+}
+
+.main-content h2 {
+    text-align: center;
+    font-family: var(--font-heading);
+    color: var(--color-accent-green);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-size: 1.4em;
+}
+
+.featured-plants {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plant-card {
+    background-color: var(--color-primary-dark);
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.plant-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-accent-green);
+}
+
+.plant-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.plant-details {
+    font-size: 0.8em;
+    opacity: 0.7;
+    line-height: 1.4;
+}

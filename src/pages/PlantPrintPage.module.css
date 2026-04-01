@@ -1,0 +1,262 @@
+/* ── Wrapper geral ── */
+.page {
+    min-height: 100vh;
+    background: #f4f4f4;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ── Barra de ação (oculta na impressão) ── */
+.printBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.backLink {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2a3a2a;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+    &:hover { opacity: 1; }
+}
+
+.printBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #2a3a2a;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.15s ease, transform 0.15s ease;
+    &:hover { background: #b8482e; transform: scale(1.03); }
+    &:active { transform: scale(0.97); }
+}
+
+/* ── Documento imprimível ── */
+.document {
+    max-width: 800px;
+    margin: 32px auto;
+    padding: 48px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Cabeçalho do documento ── */
+.docHeader {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #2a3a2a;
+    margin-bottom: 32px;
+}
+
+.image {
+    width: 140px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #e8e2d5;
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #8b5e3c;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.commonName {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2a3a2a;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.scientificName {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(42, 58, 42, 0.6);
+    margin: 0;
+}
+
+.description {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: rgba(42, 58, 42, 0.75);
+    margin: 8px 0 0;
+}
+
+.sourceLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #b8482e;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    &:hover { text-decoration: underline; }
+}
+
+/* ── Grid de seções ── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.section {
+    padding: 16px;
+    border: 1px solid rgba(139, 94, 60, 0.15);
+    border-radius: 8px;
+    background: #faf8f5;
+    break-inside: avoid;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #2a3a2a;
+    margin: 0 0 10px;
+}
+
+.iconGood { color: #2e7d32; }
+.iconWarn { color: #e65100; }
+.iconInfo { color: #7ab87a; }
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.itemGood,
+.itemWarn {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    line-height: 1.4;
+}
+
+.itemGood {
+    background: #f1f8f1;
+    color: #2e7d32;
+    border-left: 3px solid #a5d6a7;
+}
+
+.itemWarn {
+    background: #fff8f3;
+    color: #bf360c;
+    border-left: 3px solid #ffcc80;
+}
+
+.text {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(42, 58, 42, 0.8);
+    margin: 0;
+}
+
+/* ── Rodapé do documento ── */
+.docFooter {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & p {
+        font-size: 0.7rem;
+        color: rgba(42, 58, 42, 0.45);
+        margin: 0;
+    }
+}
+
+/* ── Não encontrado ── */
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #2a3a2a;
+
+    & a {
+        color: #b8482e;
+        text-decoration: underline;
+    }
+}
+
+/* ══════════════════════════════════════
+   IMPRESSÃO — @media print
+══════════════════════════════════════ */
+@media print {
+    /* Oculta a barra de ação */
+    .printBar { display: none; }
+
+    .page { background: #fff; }
+
+    .document {
+        margin: 0;
+        padding: 24px;
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    /* Grid vira coluna única em folha A4 estreita */
+    .grid { grid-template-columns: 1fr; }
+
+    .section { break-inside: avoid; }
+
+    /* Links mostram a URL no print */
+    .sourceLink::after {
+        content: ' (' attr(href) ')';
+        font-weight: 400;
+        opacity: 0.6;
+    }
+}
