@@ -3,10 +3,6 @@ import Header from '../components/layout/Header/Header';
 import Footer from '../components/layout/Footer/Footer';
 import styles from './FerramentasPage.module.css';
 
-import camomilaBg   from '../assets/img/camomila_cinematic.png';
-import lavandaBg    from '../assets/img/lavanda_cinematic.png';
-import aloeBg       from '../assets/img/aloe_cinematic.png';
-import greenHouseBg from '../assets/img/green-house.png';
 import searchCard   from '../assets/img/busca_card.jpeg';
 import comunityCard   from '../assets/img/comunidade_card.jpeg';
 import materialsCard   from '../assets/img/materiais_card.jpeg';
