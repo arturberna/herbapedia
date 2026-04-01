@@ -76,7 +76,7 @@ export default function ContextSection() {
         <div className={styles.steps}>
           {STEPS.map(({ icon: Icon, label, desc }, i) => (
             <div key={label} className={styles.step}>
-              <div className={styles.stepNumber}>{i + 1}</div>
+              {/* <div className={styles.stepNumber}>{i + 1}</div> */}
               <Icon className={styles.stepIcon} />
               <strong className={styles.stepLabel}>{label}</strong>
               <p className={styles.stepDesc}>{desc}</p>

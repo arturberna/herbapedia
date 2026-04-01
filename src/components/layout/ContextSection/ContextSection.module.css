@@ -6,18 +6,18 @@
     background-image:
         linear-gradient(
             180deg,
-            rgba(26, 30, 26, 1) 0%,
-            rgba(26, 30, 26, 0.95) 50%,
-            rgba(26, 30, 26, 1) 100%
+            rgba(26, 30, 26, 0.95) 0%,
+            rgba(26, 30, 26, 0.91) 50%,
+            rgba(26, 30, 26, 0.95) 100%
         ),
-        url('src/assets/img/OrganicBG.jpeg');
+        url('../../../assets/img/OrganicBG.jpeg');
     backdrop-filter: blur(2px);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     color: var(--color-secondary-dark);
-    padding: var(--space-8) var(--space-4);
+    padding: var(--space-8) var(--space-6);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,8 +74,7 @@
     align-items: center;
     gap: var(--space-1);
     padding: 0 var(--space-4);
-    flex: 1;
-    min-width: 100px;
+    flex: 0 0 calc(50% - var(--space-2));
 }
 
 .stat strong {
@@ -225,7 +224,10 @@
 
     .statsRow { gap: 0; }
 
-    .stat { padding: 0 var(--space-8); }
+    .stat {
+        flex: 1;
+        padding: 0 var(--space-8);
+    }
 
     .statDivider {
         display: block;

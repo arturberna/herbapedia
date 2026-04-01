@@ -160,7 +160,7 @@ export default function SobrePage() {
                 )}
 
                 {s.cta && (
-                  <Link to="/busca" className={styles.ctaBtn}>
+                  <Link to="/" className={styles.ctaBtn}>
                     <Search aria-hidden="true" />
                     Pesquisar plantas
                   </Link>

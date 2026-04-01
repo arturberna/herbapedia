@@ -6,13 +6,13 @@ export default function Footer() {
     <footer className={styles.footer}>
       <nav className={styles.left} aria-label="Links institucionais">
         <Link to="/sobre">Sobre</Link>
-        <a href="#">Comunidade</a>
+        <Link to="/em-construcao">Comunidade</Link>
       </nav>
 
       <nav className={styles.right} aria-label="Links de suporte">
-        <a href="#">Configurações</a>
-        <a href="#">Termos</a>
-        <a href="#">Privacidade</a>
+        <Link to="/em-construcao">Configurações</Link>
+        <Link to="/em-construcao">Termos</Link>
+        <Link to="/em-construcao">Privacidade</Link>
       </nav>
     </footer>
   );
